@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - W1</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Utama</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Halaman Utama</h1>
+    <button id="switchButton">Beralih ke Halaman 2</button>
+
+    <script>
+        // Menangani pesan dari website pengontrol
+        window.addEventListener("message", function(event) {
+            if (event.origin === 'https://honbard.github.io/P2/') {
+                if (event.data === 'lockdown') {
+                    // Ganti ke halaman Lockdown
+                    document.body.innerHTML = '<h1>Lockdown</h1><img src="https://media.discordapp.net/attachments/888403743517859881/1157996214181167215/WEBSITE_DI_SHUTDOWN_SEMENTARA.png?ex=651aa383&is=65195203&hm=9d261b0c7f4c8851ff06b9a2fc0c43e1024ae90caf1ce8917bd7512956167f3d&=&width=1311&height=655">';
+                }
+            }
+        });
+
+        // Menangani tombol switch
+        document.getElementById('switchButton').addEventListener('click', function() {
+            // Mengirim pesan ke website pengontrol untuk beralih ke halaman 2
+            window.parent.postMessage('switchToPage2', 'https://codepen.io');
+        });
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
